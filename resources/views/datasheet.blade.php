@@ -36,7 +36,7 @@
           </nav>
     </header>
 
-    <h1 class="text-center">Table of data</h1>
+    <h1 class="text-center">TÀI LIỆU</h1>
 
     <div class="container">    
         <table class="table table-hover">
@@ -44,27 +44,20 @@
               <tr>
                 <th scope="col">ID</th>
                 <th scope="col">Tài liệu</th>
-                <th scope="col">Vị trí</th>
+                <th scope="col">Kệ sách</th>
+                <th scope="col">Phòng ban</th>
                 <th scope="col">Người thêm</th>
-                <th scope="col">Work with</th>
               </tr>
             </thead>
             <tbody>
                 @foreach($doc as $document)
-                    @foreach($user as $usr)
-                        @foreach($location as $loc)
                         <tr>                
                             <th scope="row">{{ $document->id }}</th>
                             <td>{{ $document->name }}</td>    
-                            <td>{{ $document->User_id }}</td>   
-                            <td>{{ $loc->id }}</td>   
-                            <td>
-                                <a href="#"><i class="fas fa-edit"></i></i></a>
-                                <a href="#"><i class="fas fa-trash"></i></a>
-                            </td>      
+                            <td>{{ $document->stationName}}</td>   
+                            <td>{{ $document->roomName}}</td> 
+                            <td>{{ $document->usrname }}</td>   
                         </tr>
-                @endforeach
-                @endforeach
                 @endforeach
             </tbody>
           </table>
