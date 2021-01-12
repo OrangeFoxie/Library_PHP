@@ -14,10 +14,11 @@ $controllerLink = 'App\Http\Controllers';
 |
 */
 
-Route::get('/', function () {
+Route::get('/welcome', function () {
     return view('welcome');
 });
 
 Route::get('testDB', $controllerLink.'\TestDB@index');
 
-Route::get('datasheet', $controllerLink.'\datasheetController@showDocs');
+Route::get('/', $controllerLink.'\datasheetController@showDocs');   //index page
+Route::get('/home', $controllerLink.'\datasheetController@showDocs');
