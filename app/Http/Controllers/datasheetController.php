@@ -16,8 +16,6 @@ class datasheetController extends Controller
         ->select('document.id','document.name','user.name as usrname','station.name as stationName', 'room.name as roomName')        
         ->orderBy('document.id')
         ->get();
-        // $users= DB::table('user')->get();
-        // $stations = DB::table('station')->get();
 
         if( $docs != null ){
             return view('datasheet', ['doc' => $docs]);
