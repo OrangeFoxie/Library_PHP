@@ -12,11 +12,20 @@
     <nav class="navbar navbar-light bg-light">
         <div class="container">
           <a href="#" class="navbar-brand d-none d-md-block">HomePage</a>
-          <form class="d-flex mr-0">
+          @if (Route::has('login'))
+            <div>
+                @auth
+                    <a href="{{ url('/home') }}" class="text-sm text-gray-700 underline">Trang chủ</a>
+                @else
+                    <a href="{{ route('login') }}"><button class="btn btn-outline-success rounded-pill">Đăng nhập</button></a>
+                @endauth
+            </div>
+          @endif
+          {{-- <form class="d-flex mr-0">
             <input class="form-control me-2 border-top rounded-pill" type="text" placeholder="id" aria-label="Search">
             <input class="form-control me-2 border-top rounded-pill" type="password" placeholder="password" aria-label="Search">
             <button class="btn btn-outline-success rounded-pill" type="submit">Login</button>
-          </form>
+          </form> --}}
         </div>
     </nav>
 </body>
