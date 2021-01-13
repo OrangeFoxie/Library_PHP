@@ -16,8 +16,13 @@
             <div>
                 @auth
                     <a href="{{ url('/home') }}" class="text-sm text-gray-700 underline">Trang chủ</a>
+                    <a href="{{ url('/logout') }}" class="text-sm text-gray-700 underline">
+                      <button class="btn btn-outline-success rounded-pill">Đăng xuất</button>
+                    </a>
                 @else
-                    <a href="{{ route('login') }}"><button class="btn btn-outline-success rounded-pill">Đăng nhập</button></a>
+                    <a href="{{ route('login') }}">
+                      <button class="btn btn-outline-success rounded-pill">Đăng nhập</button>
+                    </a>
                 @endauth
             </div>
           @endif
