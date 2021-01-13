@@ -21,11 +21,6 @@
                 @endauth
             </div>
           @endif
-          {{-- <form class="d-flex mr-0">
-            <input class="form-control me-2 border-top rounded-pill" type="text" placeholder="id" aria-label="Search">
-            <input class="form-control me-2 border-top rounded-pill" type="password" placeholder="password" aria-label="Search">
-            <button class="btn btn-outline-success rounded-pill" type="submit">Login</button>
-          </form> --}}
         </div>
     </nav>
 </body>
