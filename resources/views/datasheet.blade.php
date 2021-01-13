@@ -48,6 +48,6 @@
 
     <script>
         $('#sortTable').DataTable();
-      </script>
+    </script>
 </body>
 </html>
