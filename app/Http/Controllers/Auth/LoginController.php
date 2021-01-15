@@ -3,10 +3,9 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-use Auth;
 use Illuminate\Http\Request;
+use Auth;
 
 class LoginController extends Controller
 {
@@ -28,7 +27,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::WELCOME;
+    protected $redirectTo = '/home';
 
     /**
      * Create a new controller instance.
@@ -40,13 +39,36 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    public function username()
-    {
-        return 'username';
-    }
+    // public function username()
+    // {
+    //     return 'email';
+    // }
 
-    public function logout(Request $request) {
-        Auth::logout();
-        return redirect('/');
-    }
+    /**
+     * Override login function for login with email or username.
+     */
+    // public function login(Request $request)
+    // {
+    //     $this->validate($request, [
+    //         'email' => 'required',
+    //         'password' => 'required|min:1'
+    //     ]);
+
+    //     $email = $request->get('email');
+    //     $password = $request->get('password');
+    //     $remember_me = $request->remember;
+
+    //     $login_type = filter_var($email, FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
+
+    //     if (Auth::attempt([$login_type => $email, 'password' => $password], $remember_me)) {
+    //         //Auth successful here
+    //         return redirect()->intended($this->redirectPath());
+    //     }
+
+    //     return redirect()->back()
+    //         ->withInput()
+    //         ->withErrors([
+    //             'login_error' => 'These credentials do not match our records.',
+    //         ]);
+    // }
 }
