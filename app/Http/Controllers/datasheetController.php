@@ -10,10 +10,10 @@ class datasheetController extends Controller
     //
     public function showDocs(){
         $docs = DB::table('document')
-        ->join('user','user.id','=','User_id')
         ->join('station','station.id','=','Station_id')
         ->join('room','room.id','=','Station_id')
-        ->select('document.id','document.name','user.name as usrname','station.name as stationName', 'room.name as roomName')        
+        ->join('users','users.id','=','users_id')
+        ->select('document.id','document.name','station.name as stationName', 'room.name as roomName', 'users.name as users_name')        
         ->orderBy('document.id')
         ->get();
 

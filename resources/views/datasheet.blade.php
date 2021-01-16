@@ -39,7 +39,7 @@
                             <td>{{ $document->name }}</td>    
                             <td>{{ $document->stationName}}</td>   
                             <td>{{ $document->roomName}}</td> 
-                            <td>{{ $document->usrname }}</td>   
+                            <td>{{ $document->users_name }}</td>  
                         </tr>
                 @endforeach
             </tbody>

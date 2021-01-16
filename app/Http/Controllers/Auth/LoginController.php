@@ -39,36 +39,31 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    // public function username()
-    // {
-    //     return 'email';
-    // }
-
     /**
      * Override login function for login with email or username.
      */
-    // public function login(Request $request)
-    // {
-    //     $this->validate($request, [
-    //         'email' => 'required',
-    //         'password' => 'required|min:1'
-    //     ]);
+    public function login(Request $request)
+    {
+        $this->validate($request, [
+            'email' => 'required',
+            'password' => 'required|min:1'
+        ]);
 
-    //     $email = $request->get('email');
-    //     $password = $request->get('password');
-    //     $remember_me = $request->remember;
+        $email = $request->get('email');
+        $password = $request->get('password');
+        $remember_me = $request->remember;
 
-    //     $login_type = filter_var($email, FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
+        $login_type = filter_var($email, FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
 
-    //     if (Auth::attempt([$login_type => $email, 'password' => $password], $remember_me)) {
-    //         //Auth successful here
-    //         return redirect()->intended($this->redirectPath());
-    //     }
+        if (Auth::attempt([$login_type => $email, 'password' => $password], $remember_me)) {
+            //Auth successful here
+            return redirect()->intended($this->redirectPath('/view'));
+        }
 
-    //     return redirect()->back()
-    //         ->withInput()
-    //         ->withErrors([
-    //             'login_error' => 'These credentials do not match our records.',
-    //         ]);
-    // }
+        return redirect()->back()
+            ->withInput()
+            ->withErrors([
+                'login_error' => 'Tài khoảng, password không chính xác',
+            ]);
+    }
 }

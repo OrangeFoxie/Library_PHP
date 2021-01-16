@@ -24,7 +24,7 @@ Route::get('/', $controllerLink.'\datasheetController@showDocs');   //index page
 Route::get('/home', $controllerLink.'\datasheetController@showDocs');
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 //log out
 Route::get('/logout', $controllerLink.'\Auth\LoginController@logout');
