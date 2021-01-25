@@ -63,7 +63,7 @@ class LoginController extends Controller
         return redirect()->back()
             ->withInput()
             ->withErrors([
-                'login_error' => 'Tài khoảng, password không chính xác',
+                'login_error' => 'Tài khoản hoặc password không chính xác',
             ]);
     }
 }
