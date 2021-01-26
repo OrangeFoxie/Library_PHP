@@ -19,7 +19,7 @@
                 @auth
                     {{-- button dropDown --}}
                     <div class="dropdown">
-                      <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         {{ Auth::user()->username }}  
                       </button>
                       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">

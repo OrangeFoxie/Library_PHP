@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\user;
+use App\Models\room;
 
 class TestDB extends Controller
 {
@@ -17,6 +18,8 @@ class TestDB extends Controller
         //     return 'false';
         // }
 
-        return user::all();
+        // return user::all();
+
+        return room::all();
     }
 }

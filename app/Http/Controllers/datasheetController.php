@@ -17,8 +17,14 @@ class datasheetController extends Controller
         ->orderBy('document.id')
         ->get();
 
+        $rooms = DB::table('room')
+        ->join('station','room.id','=','Room_id')
+        ->select('room.name as rName', 'station.name as sName')
+        ->get();     
+        
+
         if( $docs != null ){
-            return view('datasheet', ['doc' => $docs]);
+            return view('datasheet', ['doc' => $docs], ['room'=>$rooms]);
         }else{
             return view('datasheet');
         }

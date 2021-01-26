@@ -18,5 +18,9 @@
     <div class="container">    
         @include('tableSheet')
     </div>
+
+
+        @include('footer')
+
 </body>
 </html>
