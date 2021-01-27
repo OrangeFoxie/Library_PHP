@@ -9,7 +9,7 @@
     @if (Route::has('login'))
     <div class="container">
         @auth
-        <footer class="footer position-fixed bottom-0 container">
+        <footer class="footer position-fixed bottom-0 container" value="{{ csrf_token() }}">
             <ul class="nav nav-tabs" id="myTab" role="tablist">
                 <li class="nav-item">
                   <a class="nav-link" id="home-tab" data-toggle="tab" href="#addDoc" role="tab" aria-controls="home" aria-selected="true">Thêm tài liệu</a>
@@ -24,25 +24,25 @@
                     <a class="nav-link" id="contact-tab" data-toggle="tab" href="#minimal" role="tab" aria-controls="contact" aria-selected="false">Thu nhỏ</a>
                   </li>
               </ul>
+              @csrf
               <div class="tab-content" id="myTabContent">
                 <div class="my-3 tab-pane fade container" id="addDoc" role="tabpanel" aria-labelledby="home-tab">
-                    <form>
+                    <form action="subDocs" method="POST">
                         <div class="form-group">
-                          <label for="exampleInputEmail1">Tên tài liệu @section('heloo')</label>
+                          <label for="exampleInputEmail1">Tên tài liệu</label>
                           
-                          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="...">
+                          <input type="text" name="nameDoc" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="...">
                           <small id="emailHelp" class="form-text text-muted">Tên tài liệu không nên quá 50 kí tự</small>
                         </div>
                         <div class="form-group">
                             <label for="exampleFormControlSelect1">Kệ lưu trữ</label>
-                            <select class="form-control" id="exampleFormControlSelect1">
+                            <select class="form-control" name="stationName" id="exampleFormControlSelect1">
                                 @foreach($stations as $S => $S1) 
                                     <option>{{ $S1->name }}</option>
                                 @endforeach
                             </select>      
                             <small id="emailHelp" class="form-text text-muted">Kệ lưu trữ sẽ nằm trong phòng lưu trữ đã được định trước</small>              
                         </div>
-    
                         <button type="submit" class="btn btn-primary mt-2">Lưu lại</button>
                       </form>
                 </div>
@@ -50,7 +50,7 @@
                   <form>
                       <div class="form-group">
                         <label for="exampleInputEmail1">Tên khu vực lưu trữ</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="...">
+                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="...">
                         <small id="emailHelp" class="form-text text-muted">Tên khu vực không nên quá 50 kí tự</small>
                       </div>
                       <div class="form-group">
@@ -69,7 +69,7 @@
                     <form>
                         <div class="form-group">
                           <label for="exampleInputEmail1">Tên phòng</label>
-                          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="...">
+                          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="...">
                           <small id="emailHelp" class="form-text text-muted">Tên phòng không nên quá 50 kí tự</small>
                         </div>
     

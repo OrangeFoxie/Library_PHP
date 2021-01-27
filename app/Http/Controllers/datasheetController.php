@@ -9,12 +9,12 @@ class datasheetController extends Controller
 {
     //
     public function showDocs(){
-        $docs = DB::table('document')
+        $docs = DB::table('documents')
         ->join('station','station.id','=','Station_id')
         ->join('room','room.id','=','Station_id')
         ->join('users','users.id','=','users_id')
-        ->select('document.id','document.name','station.name as stationName', 'room.name as roomName', 'users.name as users_name')        
-        ->orderBy('document.id')
+        ->select('documents.id','documents.name','station.name as stationName', 'room.name as roomName', 'users.name as users_name')        
+        ->orderBy('documents.id')
         ->get();
 
         $rooms = DB::table('room')->get();     

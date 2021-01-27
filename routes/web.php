@@ -26,3 +26,5 @@ Route::get('/home', $controllerLink.'\datasheetController@showDocs');   //index 
 Auth::routes();
 
 Route::get('/logout', $controllerLink.'\Auth\LoginController@logout');  //log out
+
+Route::post('/subDocs', $controllerLink.'\insertController@store');  //Input
