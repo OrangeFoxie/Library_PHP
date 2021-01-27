@@ -24,10 +24,11 @@
                     <a class="nav-link" id="contact-tab" data-toggle="tab" href="#minimal" role="tab" aria-controls="contact" aria-selected="false">Thu nhỏ</a>
                   </li>
               </ul>
-              @csrf
+              
               <div class="tab-content" id="myTabContent">
                 <div class="my-3 tab-pane fade container" id="addDoc" role="tabpanel" aria-labelledby="home-tab">
                     <form action="subDocs" method="POST">
+                      @csrf
                         <div class="form-group">
                           <label for="exampleInputEmail1">Tên tài liệu</label>
                           
@@ -48,6 +49,7 @@
                 </div>
                 <div class="my-3 tab-pane fade container" id="addDistrict" role="tabpanel" aria-labelledby="contact-tab">
                   <form>
+                    @csrf
                       <div class="form-group">
                         <label for="exampleInputEmail1">Tên khu vực lưu trữ</label>
                         <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="...">
@@ -67,6 +69,7 @@
               </div>
                 <div class="my-3 tab-pane fade container" id="addRoom" role="tabpanel" aria-labelledby="profile-tab">
                     <form>
+                      @csrf
                         <div class="form-group">
                           <label for="exampleInputEmail1">Tên phòng</label>
                           <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="...">

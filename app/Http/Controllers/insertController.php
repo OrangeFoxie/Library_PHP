@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Auth;
 use App\Models\document;
 
 class insertController extends Controller
@@ -42,7 +43,7 @@ class insertController extends Controller
          $docs = new document;
          $docs->name = "aa"; 
          $docs->Station_id = 1; 
-         $docs->users_id = 1; 
+         $docs->users_id = Auth::user()->id; 
         // $news->Station_id = $request->Station_id;
         // $news->user_id = $request->user_id;
 
