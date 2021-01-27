@@ -40,15 +40,13 @@ class insertController extends Controller
     {
         //
         
-         $docs = new document;
-         $docs->name = "aa"; 
-         $docs->Station_id = $request->get('stationName'); 
-         $docs->users_id = Auth::user()->id; 
-        // $news->Station_id = $request->Station_id;
-        // $news->user_id = $request->user_id;
+        $docs = new document;
+        $docs->name = $request->get('nameDoc'); 
+        $docs->Station_id = $request->get('stationName'); 
+        $docs->users_id = Auth::user()->id; 
 
-         echo $docs->save();
-        // return redirect()->action('App\Http\Controllers\Auth\insertController@store');
+        $docs->save();
+        return redirect('/');
     }
 
     /**
