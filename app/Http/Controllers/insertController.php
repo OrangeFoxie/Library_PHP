@@ -38,15 +38,14 @@ class insertController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        
+        //        
         $docs = new document;
         $docs->name = $request->get('nameDoc'); 
         $docs->Station_id = $request->get('stationName'); 
         $docs->users_id = Auth::user()->id; 
 
         $docs->save();
-        return redirect('/');
+        return back();
     }
 
     /**
