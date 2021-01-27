@@ -20,10 +20,9 @@ Route::get('/welcome', function () {
 
 Route::get('testDB', $controllerLink.'\TestDB@index');
 
-Route::get('/', $controllerLink.'\datasheetController@showDocs');   //index page
-Route::get('/home', $controllerLink.'\datasheetController@showDocs');
+Route::get('/', $controllerLink.'\datasheetController@showDocs');       //index page
+Route::get('/home', $controllerLink.'\datasheetController@showDocs');   //index page
 
 Auth::routes();
 
-//log out
-Route::get('/logout', $controllerLink.'\Auth\LoginController@logout');
+Route::get('/logout', $controllerLink.'\Auth\LoginController@logout');  //log out

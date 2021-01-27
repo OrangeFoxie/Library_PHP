@@ -36,8 +36,8 @@
                         <div class="form-group">
                             <label for="exampleFormControlSelect1">Kệ lưu trữ</label>
                             <select class="form-control" id="exampleFormControlSelect1">
-                                @foreach($room as $R) 
-                                    <option>{{ $R->sName }}</option>
+                                @foreach($stations as $S => $S1) 
+                                    <option>{{ $S1->name }}</option>
                                 @endforeach
                             </select>      
                             <small id="emailHelp" class="form-text text-muted">Kệ lưu trữ sẽ nằm trong phòng lưu trữ đã được định trước</small>              
@@ -56,8 +56,8 @@
                       <div class="form-group">
                           <label for="exampleFormControlSelect1">Kệ lưu trữ thuộc phòng</label>
                           <select class="form-control" id="exampleFormControlSelect1">
-                            @foreach($room as $R) 
-                                <option>{{ $R->rName }}</option>
+                            @foreach($rooms as $R => $R1) 
+                                <option>{{ $R1->name }}</option>
                             @endforeach
                           </select>      
                       </div>

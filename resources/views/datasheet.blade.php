@@ -7,11 +7,8 @@
 
 </head>
 <body>
-    <header class="bg-light">
-        <div class="container">
-            @include('header')
-        </div>
-    </header>    
+
+        @include('header')
 
     <h1 class="text-center">TÀI LIỆU</h1>
 

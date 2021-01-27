@@ -11,7 +11,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   </head>
 <body>
-    <nav class="navbar navbar-light bg-light">
+    <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
         <div class="container">
           <a href="#" class="navbar-brand d-none d-md-block">Quốc Minh</a>
           @if (Route::has('login'))
@@ -19,8 +19,8 @@
                 @auth
                     {{-- button dropDown --}}
                     <div class="dropdown">
-                      <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        {{ Auth::user()->username }}  
+                      <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        {{ Auth::user()->username }}
                       </button>
                       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                         <a class="dropdown-item" href="#">Thông tin cá nhân</a>

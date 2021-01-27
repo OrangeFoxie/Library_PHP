@@ -17,14 +17,12 @@ class datasheetController extends Controller
         ->orderBy('document.id')
         ->get();
 
-        $rooms = DB::table('room')
-        ->join('station','room.id','=','Room_id')
-        ->select('room.name as rName', 'station.name as sName')
-        ->get();     
-        
+        $rooms = DB::table('room')->get();     
 
-        if( $docs != null ){
-            return view('datasheet', ['doc' => $docs], ['room'=>$rooms]);
+        $stations = DB::table('station')->get();        
+
+        if( $docs && $rooms && $stations ){
+            return view('datasheet', compact('docs','rooms','stations'));
         }else{
             return view('datasheet');
         }
