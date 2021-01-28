@@ -9,7 +9,7 @@
     @if (Route::has('login'))
     <div class="container">
         @auth
-        <footer class="footer position-fixed bottom-0 container" value="{{ csrf_token() }}">
+        <footer class="footer fixed-bottom container bg-white" value="{{ csrf_token() }}">
             <ul class="nav nav-tabs" id="myTab" role="tablist">
                 <li class="nav-item">
                   <a class="nav-link" id="home-tab" data-toggle="tab" href="#addDoc" role="tab" aria-controls="home" aria-selected="true">Thêm tài liệu</a>

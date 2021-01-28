@@ -38,9 +38,14 @@ class insertController extends Controller
      */
     public function store(Request $request)
     {
-        //        
+        //
         $docs = new document;
-        $docs->name = $request->get('nameDoc'); 
+        $nameDoc = $request->get('nameDoc'); 
+            if($nameDoc == null){
+                return back();
+            }else{
+                $docs->name = $nameDoc;
+            }
         $docs->Station_id = $request->get('stationName'); 
         $docs->users_id = Auth::user()->id; 
 

@@ -10,12 +10,13 @@
 
         @include('header')
 
-    <h1 class="text-center">TÀI LIỆU</h1>
+    <h1 class="text-center mt-3">TÀI LIỆU</h1>
 
     <div class="container">    
         @include('tableSheet')
     </div>
 
+    <div style="height:100px; width:100%; clear:both;"></div>
 
         @include('footer')
 
