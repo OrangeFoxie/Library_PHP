@@ -9,16 +9,25 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css">
     <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
+
+    <style>
+        #he{
+            background: white;
+            position: sticky;
+            top: 0; 
+        }
+    </style>
+
 </head>
 <body>
     <table class="table table-hover" id="sortTable">
         <thead>
           <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Tài liệu</th>
-            <th scope="col">Kệ sách</th>
-            <th scope="col">Phòng ban</th>
-            <th scope="col">Người thêm</th>
+            <th scope="col" id="he">ID</th>
+            <th scope="col" id="he">Tài liệu</th>
+            <th scope="col" id="he">Kệ sách</th>
+            <th scope="col" id="he">Phòng ban</th>
+            <th scope="col" id="he">Người thêm</th>
           </tr>
         </thead>
         <tbody>
