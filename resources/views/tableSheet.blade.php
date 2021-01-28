@@ -20,28 +20,30 @@
 
 </head>
 <body>
-    <table class="table table-hover" id="sortTable">
-        <thead>
-          <tr>
-            <th scope="col" id="he">ID</th>
-            <th scope="col" id="he">Tài liệu</th>
-            <th scope="col" id="he">Kệ sách</th>
-            <th scope="col" id="he">Phòng ban</th>
-            <th scope="col" id="he">Người thêm</th>
-          </tr>
-        </thead>
-        <tbody>
-            @foreach($docs as $document)
-                <tr>                
-                    <th scope="row">{{ $document->id }}</th>
-                    <td><a href="#" class="text-dark" style="text-decoration:none;">{{ $document->name }}</a></td>    
-                    <td>{{ $document->stationName}}</td>   
-                    <td>{{ $document->roomName}}</td> 
-                    <td>{{ $document->users_name }}</td>  
-                </tr>    
-            @endforeach
-        </tbody>
-    </table>
+    <div class="container">    
+        <table class="table table-hover" id="sortTable">
+            <thead>
+            <tr>
+                <th scope="col" id="he">ID</th>
+                <th scope="col" id="he">Tài liệu</th>
+                <th scope="col" id="he">Kệ sách</th>
+                <th scope="col" id="he">Phòng ban</th>
+                <th scope="col" id="he">Người thêm</th>
+            </tr>
+            </thead>
+            <tbody>
+                @foreach($docs as $document)
+                    <tr>                
+                        <th scope="row">{{ $document->id }}</th>
+                        <td><a href="#" class="text-dark" style="text-decoration:none;">{{ $document->name }}</a></td>    
+                        <td>{{ $document->stationName}}</td>   
+                        <td>{{ $document->roomName}}</td> 
+                        <td>{{ $document->users_name }}</td>  
+                    </tr>    
+                @endforeach
+            </tbody>
+        </table>
+    </div>
 
     <script>
         $('#sortTable').DataTable();
