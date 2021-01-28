@@ -30,10 +30,9 @@
                     <form action="subDocs" method="POST">
                       @csrf
                         <div class="form-group">
-                          <label for="exampleInputEmail1">Tên tài liệu</label>
-                          
+                          <label for="exampleInputEmail1">Tên tài liệu</label>                          
                           <input type="text" name="nameDoc" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="...">
-                          <small id="emailHelp" class="form-text text-muted">Tên tài liệu không nên quá 50 kí tự</small>
+                          <small id="emailHelp" class="form-text text-muted">Tên tài liệu không nên quá 350 kí tự bao gồm khoảng trắng</small>
                         </div>
                         <div class="form-group">
                             <label for="exampleFormControlSelect1">Kệ lưu trữ</label>
@@ -48,31 +47,30 @@
                       </form>
                 </div>
                 <div class="my-3 tab-pane fade container" id="addDistrict" role="tabpanel" aria-labelledby="contact-tab">
-                  <form>
+                  <form  action="subStas" method="POST">
                     @csrf
                       <div class="form-group">
                         <label for="exampleInputEmail1">Tên khu vực lưu trữ</label>
-                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="...">
+                        <input type="text" name="nameSta" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="...">
                         <small id="emailHelp" class="form-text text-muted">Tên khu vực không nên quá 50 kí tự</small>
                       </div>
                       <div class="form-group">
-                          <label for="exampleFormControlSelect1">Kệ lưu trữ thuộc phòng</label>
-                          <select class="form-control" id="exampleFormControlSelect1">
-                            @foreach($rooms as $R => $R1) 
-                                <option>{{ $R1->name }}</option>
-                            @endforeach
+                          <label for="exampleFormControlSelect1">Kệ lưu trữ sẽ thuộc phòng</label>
+                          <select class="form-control" name="roomName" id="exampleFormControlSelect1" >
+                              @foreach($rooms as $R => $R1) 
+                                  <option value="{{ $R1->id }}">{{ $R1->name }}</option>
+                              @endforeach
                           </select>      
-                      </div>
-    
+                      </div>    
                       <button type="submit" class="btn btn-primary mt-2">Lưu lại</button>
                     </form>
               </div>
                 <div class="my-3 tab-pane fade container" id="addRoom" role="tabpanel" aria-labelledby="profile-tab">
-                    <form>
+                    <form action="subRooms" method="POST">
                       @csrf
                         <div class="form-group">
                           <label for="exampleInputEmail1">Tên phòng</label>
-                          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="...">
+                          <input type="text" name="nameRoom" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="...">
                           <small id="emailHelp" class="form-text text-muted">Tên phòng không nên quá 50 kí tự</small>
                         </div>
     

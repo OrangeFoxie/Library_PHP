@@ -27,4 +27,6 @@ Auth::routes();
 
 Route::get('/logout', $controllerLink.'\Auth\LoginController@logout');  //log out
 
-Route::post('/subDocs', $controllerLink.'\insertController@store');  //Input
+Route::post('/subDocs', $controllerLink.'\insertController@storeDocument');  //Input new Docs
+Route::post('/subStas', $controllerLink.'\insertController@storeStation');  //Input new Station
+Route::post('/subRooms', $controllerLink.'\insertController@storeRoom');  //Input new Station

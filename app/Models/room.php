@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class room extends Model
 {
     use HasFactory;
-    protected $table = 'room';
+    // protected $table = 'room';
     
     /**
      * 

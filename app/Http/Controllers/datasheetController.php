@@ -10,16 +10,16 @@ class datasheetController extends Controller
     //
     public function showDocs(){
         $docs = DB::table('documents')
-        ->join('station','station.id','=','Station_id')
-        ->join('room','room.id','=','Station_id')
+        ->join('stations','stations.id','=','Station_id')
+        ->join('rooms','rooms.id','=','Room_id')
         ->join('users','users.id','=','users_id')
-        ->select('documents.id','documents.name','station.name as stationName', 'room.name as roomName', 'users.username as users_name')        
+        ->select('documents.id','documents.name','stations.name as stationName', 'rooms.name as roomName', 'users.username as users_name')        
         ->orderBy('documents.id')
         ->get();
 
-        $rooms = DB::table('room')->get();     
+        $rooms = DB::table('rooms')->get();     
 
-        $stations = DB::table('station')->get();        
+        $stations = DB::table('stations')->get();        
 
         if( $docs && $rooms && $stations ){
             return view('datasheet', compact('docs','rooms','stations'));

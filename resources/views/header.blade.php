@@ -13,7 +13,7 @@
 <body>
     <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
         <div class="container">
-          <a href="#" class="navbar-brand d-none d-md-block">Quốc Minh</a>
+          <a href="{{ url('/') }}" class="navbar-brand d-none d-md-block">Quốc Minh</a>
           @if (Route::has('login'))
             <div>
                 @auth

@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Auth;
 use App\Models\document;
+use App\Models\station;
+use App\Models\room;
 
 class insertController extends Controller
 {
@@ -36,7 +38,7 @@ class insertController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function storeDocument(Request $request)
     {
         //
         $docs = new document;
@@ -50,6 +52,37 @@ class insertController extends Controller
         $docs->users_id = Auth::user()->id; 
 
         $docs->save();
+        return back();
+    }
+
+    public function storeStation(Request $request)
+    {
+        //
+        $sta = new station;
+        $nameSta = $request->get('nameSta'); 
+            if($nameSta == null){
+                return back();
+            }else{
+                $sta->name = $nameSta;
+            }
+        $sta->Room_id = $request->get('roomName'); 
+
+        $sta->save();
+        return back();
+    }
+
+    public function storeRoom(Request $request)
+    {
+        //
+        $Room = new room;
+        $nameRoom = $request->get('nameRoom'); 
+            if($nameRoom == null){
+                return back();
+            }else{
+                $Room->name = $nameRoom;
+            }
+
+        $Room->save();
         return back();
     }
 
