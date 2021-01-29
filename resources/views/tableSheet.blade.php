@@ -40,7 +40,7 @@
                 @foreach($docs as $document)
                     <tr>                
                         <th scope="row">{{ $document->id }}</th>
-                        <td><a href="{{ $document->path }}" target="blank" class="text-dark" style="text-decoration:none;">{{ $document->name }}</a></td>    
+                        <td><a href="{{ $document->path }}" target="_blank" class="text-dark" style="text-decoration:none;">{{ $document->name }}</a></td>    
                         <td>{{ $document->stationName}}</td>   
                         <td>{{ $document->roomName}}</td> 
                         <td>{{ $document->users_name }}</td>  
