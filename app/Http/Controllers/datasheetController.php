@@ -13,7 +13,7 @@ class datasheetController extends Controller
         ->join('stations','stations.id','=','Station_id')
         ->join('rooms','rooms.id','=','Room_id')
         ->join('users','users.id','=','users_id')
-        ->select('documents.id','documents.name','stations.name as stationName', 'rooms.name as roomName', 'users.username as users_name')        
+        ->select('documents.id','documents.name', 'documents.path as path', 'stations.name as stationName', 'rooms.name as roomName', 'users.username as users_name')        
         ->orderBy('documents.id')
         ->get();
 
