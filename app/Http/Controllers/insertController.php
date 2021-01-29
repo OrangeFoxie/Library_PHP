@@ -40,6 +40,10 @@ class insertController extends Controller
      */
     public function storeDocument(Request $request)
     {
+        $this->validate($request, [
+            'customFile' => 'required|mimes:pdf|max:10000'
+        ]);
+
         //
         $docs = new document;
         $nameDoc = $request->get('nameDoc'); 
@@ -50,6 +54,8 @@ class insertController extends Controller
             }
         $docs->Station_id = $request->get('stationName'); 
         $docs->users_id = Auth::user()->id; 
+        $fileName = $request->file('customFile')->getClientOriginalName();
+        $docs->path = $request->file('customFile')->store('Documents');
 
         $docs->save();
         return back();

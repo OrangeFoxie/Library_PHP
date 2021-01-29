@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>footer</title>     
+
 </head>
 <body>
     @if (Route::has('login'))
@@ -27,7 +28,7 @@
               
               <div class="tab-content" id="myTabContent">
                 <div class="my-3 tab-pane fade container" id="addDoc" role="tabpanel" aria-labelledby="home-tab">
-                    <form action="subDocs" method="POST">
+                    <form action="subDocs" method="POST" enctype="multipart/form-data">
                       @csrf
                         <div class="form-group">
                           <label for="exampleInputEmail1">Tên tài liệu</label>                          
@@ -42,7 +43,11 @@
                                 @endforeach
                             </select>      
                             <small id="emailHelp" class="form-text text-muted">Kệ lưu trữ sẽ nằm trong phòng lưu trữ đã được định trước</small>              
+                        </div>                  
+                        <div>
+                          <input type="file" name="customFile" class="custom-file-input" id="customFile" accept="application/pdf">
                         </div>
+
                         <button type="submit" class="btn btn-primary mt-2">Lưu lại</button>
                       </form>
                 </div>
@@ -86,6 +91,7 @@
         @endauth
     </div>
   @endif
+
 
 </body>
 </html>

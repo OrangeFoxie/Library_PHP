@@ -15,6 +15,9 @@
     {{-- <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script> --}}
     <script src="js/dataTables.bootstrap4.min.js"></script>
 
+    <link rel="stylesheet" href="fileinput/css/fileiput.css">
+    <script src="fileinput/js/fileinput.min.js"></script>
+
     <style>
         #he{
             background: white;
