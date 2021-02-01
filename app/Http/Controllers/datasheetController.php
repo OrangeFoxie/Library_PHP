@@ -19,7 +19,11 @@ class datasheetController extends Controller
 
         $rooms = DB::table('rooms')->get();     
 
-        $stations = DB::table('stations')->get();        
+        $stations = DB::table('stations')
+        ->join('rooms','Room_id','=','rooms.id')
+        ->select('rooms.name as RoomName','stations.id as id', 'stations.name as name')
+        ->orderBy('RoomName')
+        ->get();        
 
         if( $docs && $rooms && $stations ){
             return view('datasheet', compact('docs','rooms','stations'));

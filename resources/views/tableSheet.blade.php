@@ -46,7 +46,7 @@
                         <td><a href="{{ url('uploads/'.$document->path) }}" target="_blank" class="text-dark" style="text-decoration:none;">{{ $document->name }}</a></td>    
                         <td>{{ $document->stationName}}</td>   
                         <td>{{ $document->roomName}}</td> 
-                        <td>{{ $document->users_name }}</td>  
+                        <td>{{ $document->users_name }}</td>    
                     </tr>    
                 @endforeach
             </tbody>

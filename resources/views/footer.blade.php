@@ -39,7 +39,7 @@
                             <label for="exampleFormControlSelect1">Kệ lưu trữ</label>
                             <select class="form-control" name="stationName" id="exampleFormControlSelect1">
                                 @foreach($stations as $S => $S1) 
-                                    <option value="{{ $S1->id }}">{{ $S1->name }}</option>
+                                    <option value="{{ $S1->id }}">{{ $S1->name }} (phòng: {{ $S1->RoomName }})</option>
                                 @endforeach
                             </select>      
                             <small id="emailHelp" class="form-text text-muted">Kệ lưu trữ sẽ nằm trong phòng lưu trữ đã được định trước</small>              
