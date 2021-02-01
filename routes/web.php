@@ -31,4 +31,8 @@ Route::post('/subStas', $controllerLink.'\insertController@storeStation');  //In
 Route::post('/subRooms', $controllerLink.'\insertController@storeRoom');  //Input new Station
 
 
+
+
+
+// check this route
 Route::get('uploads/{path}', $controllerLink.'\datasheetController@showpdf')->name('pdf');
