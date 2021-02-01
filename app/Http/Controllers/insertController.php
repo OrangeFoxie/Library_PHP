@@ -8,6 +8,7 @@ use Auth;
 use App\Models\document;
 use App\Models\station;
 use App\Models\room;
+use Illuminate\Support\Facades\Storage;
 
 class insertController extends Controller
 {
@@ -55,7 +56,7 @@ class insertController extends Controller
         $docs->Station_id = $request->get('stationName'); 
         $docs->users_id = Auth::user()->id; 
         $fileName = $request->file('customFile')->getClientOriginalName();
-        $docs->path = $request->file('customFile')->store('Documents');
+        $docs->path = $request->file('customFile')->store('Docs','public');
 
         $docs->save();
         return back();
