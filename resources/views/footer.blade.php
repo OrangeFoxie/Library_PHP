@@ -22,8 +22,11 @@
                   <a class="nav-link" id="profile-tab" data-toggle="tab" href="#addRoom" role="tab" aria-controls="profile" aria-selected="false">Thêm phòng ban</a>
                 </li>
                 <li class="nav-item">
+                  <a class="nav-link" id="profile-tab" data-toggle="tab" href="#updateDoc" role="tab" aria-controls="profile" aria-selected="false">Cập nhật tài liệu</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" id="contact-tab" data-toggle="tab" href="#minimal" role="tab" aria-controls="contact" aria-selected="false">Thu nhỏ</a>
-                  </li>
+                </li>
               </ul>
               
               <div class="tab-content" id="myTabContent">
@@ -37,11 +40,11 @@
                         </div>
                         <div class="form-group">
                             <label for="exampleFormControlSelect1">Kệ lưu trữ</label>
-                            <select class="form-control" name="stationName" id="exampleFormControlSelect1">
-                                @foreach($stations as $S => $S1) 
-                                    <option value="{{ $S1->id }}">{{ $S1->name }} (phòng: {{ $S1->RoomName }})</option>
-                                @endforeach
-                            </select>      
+                                <select class="form-control" name="stationName" id="exampleFormControlSelect1">
+                                  @foreach($stations as $S => $S1) 
+                                      <option value="{{ $S1->id }}">{{ $S1->name }} (phòng: {{ $S1->RoomName }})</option>
+                                  @endforeach
+                                </select>      
                             <small id="emailHelp" class="form-text text-muted">Kệ lưu trữ sẽ nằm trong phòng lưu trữ đã được định trước</small>              
                         </div>                  
                         <div>
@@ -82,6 +85,31 @@
                         <button type="submit" class="btn btn-primary mt-2">Lưu lại</button>
                       </form>
                 </div>
+                <div class="my-3 tab-pane fade container" id="updateDoc" role="tabpanel" aria-labelledby="profile-tab">
+                  <form action="updateDoc" method="POST">
+                    @csrf
+                      <div class="form-group">
+                        <label for="exampleFormControlSelect1">Tài liệu</label>
+                          <select class="form-control" name="stationName" id="exampleFormControlSelect1">
+                            @foreach($docs as $D) 
+                                <option value="{{ $D->id }}">[{{ $D->id }}] - {{ $D->name }}</option>
+                            @endforeach
+                          </select>   
+                        <label for="exampleFormControlSelect1">Kệ lưu trữ</label> 
+                        <select class="form-control" name="stationName" id="exampleFormControlSelect1">
+                            @foreach($docs as $D) 
+                                <option value="{{ $D->id }}">[{{ $D->stationName }}] - {{ $D->roomName }}</option>
+                            @endforeach
+                        </select>  
+                      </div>
+                      <div>
+                        <label for="exampleInputEmail1">Chọn tài liệu PDF</label><br>
+                        <input type="file" name="customFile" class="custom-file-input" id="customFile" accept="application/pdf">
+                      </div>
+
+                      <button type="submit" class="btn btn-primary mt-2">Lưu lại</button>
+                    </form>
+              </div>
     
                 <div class="tab-pane fade" id="minimal" role="tabpanel" aria-labelledby="contact-tab"></div>
               </div>

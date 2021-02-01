@@ -13,6 +13,7 @@ $controllerLink = 'App\Http\Controllers';
 | contains the "web" middleware group. Now create something great!
 |
 */
+Auth::routes();
 
 Route::get('/welcome', function () {
     return view('welcome');
@@ -23,10 +24,11 @@ Route::get('testDB', $controllerLink.'\TestDB@index');
 Route::get('/', $controllerLink.'\datasheetController@showDocs');       //index page
 Route::get('/home', $controllerLink.'\datasheetController@showDocs');   //index page
 
-Auth::routes();
-
 Route::get('/logout', $controllerLink.'\Auth\LoginController@logout');  //log out
 
 Route::post('/subDocs', $controllerLink.'\insertController@storeDocument');  //Input new Docs
 Route::post('/subStas', $controllerLink.'\insertController@storeStation');  //Input new Station
 Route::post('/subRooms', $controllerLink.'\insertController@storeRoom');  //Input new Station
+
+
+Route::get('uploads/{path}', $controllerLink.'\datasheetController@showpdf')->name('pdf');

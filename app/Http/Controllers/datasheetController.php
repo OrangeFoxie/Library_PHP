@@ -21,8 +21,8 @@ class datasheetController extends Controller
 
         $stations = DB::table('stations')
         ->join('rooms','Room_id','=','rooms.id')
-        ->select('rooms.name as RoomName','stations.id as id', 'stations.name as name')
-        ->orderBy('RoomName')
+        ->select('rooms.name as RoomName', 'rooms.id as RoomID','stations.id as id', 'stations.name as name')
+        ->orderBy('RoomID')
         ->get();        
 
         if( $docs && $rooms && $stations ){

@@ -40,15 +40,30 @@
             </tr>
             </thead>
             <tbody>
+            @if (Route::has('login'))
+            @auth
                 @foreach($docs as $document)
                     <tr>                
                         <th scope="row">{{ $document->id }}</th>
-                        <td><a href="{{ url('uploads/'.$document->path) }}" target="_blank" class="text-dark" style="text-decoration:none;">{{ $document->name }}</a></td>    
+                        <td><a href="{{URL::to('uploads/'.$document->path)}}" target="_blank" class="text-dark" style="text-decoration:none;">{{ $document->name }}</a></td>    
+                        {{-- <td><a href="{{ route('pdf', $document->path) }}" target="_blank" class="text-dark" style="text-decoration:none;">{{ $document->name }}</a></td>     --}}
                         <td>{{ $document->stationName}}</td>   
                         <td>{{ $document->roomName}}</td> 
                         <td>{{ $document->users_name }}</td>    
                     </tr>    
                 @endforeach
+            @else
+                @foreach($docs as $document)
+                <tr>                
+                    <th scope="row">{{ $document->id }}</th>
+                    <td>{{ $document->name }}</td>    
+                    <td>{{ $document->stationName}}</td>   
+                    <td>{{ $document->roomName}}</td> 
+                    <td>{{ $document->users_name }}</td>    
+                </tr>    
+                @endforeach
+            @endauth
+            @endif
             </tbody>
         </table>
     </div>
