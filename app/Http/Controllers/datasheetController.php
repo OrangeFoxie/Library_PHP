@@ -64,6 +64,8 @@ class datasheetController extends Controller
         }
 
         $pathToFile = ( public_path().'/uploads/'.$filePath );
+
         return response()->file($pathToFile);
+        
     }
 }
