@@ -31,10 +31,10 @@ Route::post('/subStas', $controllerLink.'\insertController@storeStation');  //In
 Route::post('/subRooms', $controllerLink.'\insertController@storeRoom');  //Input new Station
     
 Route::get('pdf1/{id}',[         // open pdf file in new tab::Not using this
-    'as'=>'showpdf',
+    'as'=>'showpdf1',
     'uses'=>$controllerLink.'\datasheetController@showpdf'
 ])->middleware('auth');
 
 // open pdf file in new tab::Uing this
-Route::get('pdf/{id}', $controllerLink.'\datasheetController@getDocument')->middleware('auth'); 
+Route::get('pdf/{id}', $controllerLink.'\datasheetController@getDocument')->name('showpdf')->middleware('auth'); 
 

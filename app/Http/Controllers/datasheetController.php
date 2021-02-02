@@ -57,7 +57,7 @@ class datasheetController extends Controller
         $document = document::where('documents.id',$req->id)->first();
         $document->fresh();
         $filePath = $document->path;
-    
+        $fileName = $document->name;
         // file not found
         if( ! document::exists($filePath) ) {
           abort(404);
@@ -65,7 +65,6 @@ class datasheetController extends Controller
 
         $pathToFile = ( public_path().'/uploads/'.$filePath );
 
-        return response()->file($pathToFile);
-        
+        return response()->file($pathToFile);        
     }
 }
