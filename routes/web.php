@@ -29,10 +29,10 @@ Route::get('/logout', $controllerLink.'\Auth\LoginController@logout');  //log ou
 Route::post('/subDocs', $controllerLink.'\insertController@storeDocument');  //Input new Docs
 Route::post('/subStas', $controllerLink.'\insertController@storeStation');  //Input new Station
 Route::post('/subRooms', $controllerLink.'\insertController@storeRoom');  //Input new Station
+    
+Route::get('pdf/{id}',[         // open pdf file in new tab
+    'as'=>'showpdf',
+    'uses'=>$controllerLink.'\datasheetController@showpdf'
+])->middleware('auth');
 
-
-
-
-
-// check this route
-Route::get('uploads/{path}', $controllerLink.'\datasheetController@showpdf')->name('pdf');
+Route::get('pdf1/{id}', $controllerLink.'\datasheetController@getDocument');

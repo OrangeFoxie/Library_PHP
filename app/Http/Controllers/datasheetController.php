@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
+use Response;
+use URL;
+use App\Models\document;
+use Illuminate\Support\Facades\Redirect;
 
 class datasheetController extends Controller
 {
@@ -30,5 +34,36 @@ class datasheetController extends Controller
         }else{
             return view('datasheet');
         }
+    }
+
+    public function showpdf(Request $req){
+
+        $pdf = document::where('documents.id',$req->id)->first();
+        $pdf->fresh();
+        $pdf2 = $pdf->path;        
+
+        if( ! document::exists($pdf2) ) {
+            abort(404);
+          }
+
+        $pathToFile = URL::to('uploads/'.$pdf2);
+
+        return Redirect::to($pathToFile);
+    }        
+
+
+    public function getDocument(Request $req)
+    {
+        $document = document::where('documents.id',$req->id)->first();
+        $document->fresh();
+        $filePath = $document->path;
+    
+        // file not found
+        if( ! document::exists($filePath) ) {
+          abort(404);
+        }
+
+        $pathToFile = ( public_path().'/uploads/'.$filePath );
+        return response()->file($pathToFile);
     }
 }
