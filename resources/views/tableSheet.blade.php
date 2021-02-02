@@ -40,8 +40,6 @@
             </tr>
             </thead>
             <tbody>
-            @if (Route::has('login'))
-            @auth
                 @foreach($docs as $document)
                     <tr>                
                         <th scope="row">{{ $document->id }}</th>
@@ -51,18 +49,6 @@
                         <td>{{ $document->users_name }}</td>    
                     </tr>    
                 @endforeach
-            @else
-                @foreach($docs as $document)
-                <tr>                
-                    <th scope="row">{{ $document->id }}</th>
-                    <td>{{ $document->name }}</td>    
-                    <td>{{ $document->stationName}}</td>   
-                    <td>{{ $document->roomName}}</td> 
-                    <td>{{ $document->users_name }}</td>    
-                </tr>    
-                @endforeach
-            @endauth
-            @endif
             </tbody>
         </table>
     </div>

@@ -54,17 +54,20 @@ class datasheetController extends Controller
 
     public function getDocument(Request $req)
     {
-        $document = document::where('documents.id',$req->id)->first();
+        $document = document::findOrFail($req->id); //document::where('documents.id',$req->id)->first()
         $document->fresh();
         $filePath = $document->path;
-        $fileName = $document->name;
-        // file not found
-        if( ! document::exists($filePath) ) {
-          abort(404);
-        }
 
-        $pathToFile = ( public_path().'/uploads/'.$filePath );
-
-        return response()->file($pathToFile);        
+        // file found or not ;7
+        if(!empty($filePath)) {
+            $pathToFile = ( public_path().'/uploads/'.$filePath );
+            if(file_exists($pathToFile)){
+                return response()->file($pathToFile);
+            } else{
+                abort(404);
+            }    
+        }else{
+            abort(404);
+        }                  
     }
 }
