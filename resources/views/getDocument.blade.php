@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{{ $document->id }}</title>
+    <title>{{ $fileName }}</title>
 </head>
 <body>
-    <embed
-    src="{{ action('datasheetController@getDocument', [$document->id]) }}"
-    style="width:600px; height:800px;"
-    frameborder="0">
+    {{ $pathToFile }}
+    <object width="400" height="500" type="application/pdf" data="{{ $pathToFile }}">
+        <p>Insert your error message here, if the PDF cannot be displayed.</p>
+    </object>
 </body>
 </html>
