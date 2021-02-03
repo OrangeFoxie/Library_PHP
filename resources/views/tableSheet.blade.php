@@ -14,7 +14,6 @@
     <script src="js/jquery.dataTables.min.js"></script>
     {{-- <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script> --}}
     <script src="js/dataTables.bootstrap4.min.js"></script>
-
     <link rel="stylesheet" href="fileinput/css/fileiput.css">
     <script src="fileinput/js/fileinput.min.js"></script>
 
@@ -42,7 +41,9 @@
             <tbody>
                 @foreach($docs as $document)
                     <tr>                
-                        <th scope="row">{{ $document->id }}</th>
+                        <th scope="row">
+                            <a href="{{ route('updatepdf', $document->id) }}" target="_blank" class="text-dark" style="text-decoration:none;">{{ $document->id }}</a>
+                        </th>
                         <td><a href="{{ route('showpdf', $document->id) }}" target="_blank" class="text-dark" style="text-decoration:none;">{{ $document->name }}</a></td>    
                         <td>{{ $document->stationName}}</td>   
                         <td>{{ $document->roomName}}</td> 

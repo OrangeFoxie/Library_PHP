@@ -20,7 +20,6 @@
 
         @include('footer')
 
-
     <script src="js/backtotopButton.js"></script>
 
 </body>

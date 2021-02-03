@@ -74,4 +74,12 @@ class datasheetController extends Controller
             abort(404);
         }                  
     }
+
+    public function updatePDF(Request $req){
+        $document = document::findOrFail($req->id); 
+
+        $docName = $document->name;
+        
+        return view('updatepdf',compact('docName'));
+    }
 }
