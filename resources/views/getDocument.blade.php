@@ -8,8 +8,11 @@
 </head>
 <body>
     {{ $pathToFile }}
-    <object width="400" height="500" type="application/pdf" data="{{ $pathToFile }}">
-        <p>Insert your error message here, if the PDF cannot be displayed.</p>
+    <object data="{{ $pathToFile }}" type="application/pdf">
+        <embed src="{{ $pathToFile }}" type="application/pdf" />
     </object>
-</body>
+    <div class="embed-responsive embed-responsive-16by9">
+        <iframe class="embed-responsive-item" src="{{ $pathToFile }}" allowfullscreen></iframe>
+      </div>
+</body> 
 </html>

@@ -7,6 +7,9 @@ use DB;
 use Response;
 use URL;
 use App\Models\document;
+use App\Models\station;
+use App\Models\room;
+use App\Models\User;
 use Illuminate\Support\Facades\Redirect;
 
 class datasheetController extends Controller
@@ -76,10 +79,29 @@ class datasheetController extends Controller
     }
 
     public function updatePDF(Request $req){
-        $document = document::findOrFail($req->id); 
-
+        $document = document::findOrFail($req->id);     
         $docName = $document->name;
-        
-        return view('updatepdf',compact('docName'));
+        $docStationID = $document->Station_id;
+        $docUserID = $document->users_id;
+        $docDateCreate = $document->created_at;
+        $docDateUpdate = $document->updated_at;
+
+        $station = station::where('stations.id','=',$docStationID)->first();
+        $docStationID = $station->Room_id;
+        $docStation = $station->name;
+
+        $room = room::where('rooms.id','=',$docStationID)->first();
+        $docRoom = $room->name;
+
+        $user = User::where('users.id','=',$docUserID)->first();
+        $docUserName = $user->username;
+
+        $docURL = $req->id;
+
+        $docs = $this->showdocs()->docs;
+        $stations = $this->showdocs()->stations;
+        $rooms = $this->showdocs()->rooms;
+        return view('updatepdf',compact('docName','docStation','docRoom','docUserName','docDateCreate','docDateUpdate','docURL'
+                    ,'docs','stations','rooms'));
     }
 }
