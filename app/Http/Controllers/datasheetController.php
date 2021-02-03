@@ -64,11 +64,9 @@ class datasheetController extends Controller
             $pathToFile = ( public_path().'/uploads/'.$filePath );
 
             if(file_exists($pathToFile)){
-                return response()->file($pathToFile,
-                [
-                    'Content-Disposition' => 'filename='.$fileName
-                ]);
-                // return view('getDocument',compact('pathToFile','fileName'));
+                $headers = ['Content-Disposition' => 'inline; filename="'.$fileName.'.pdf"'];
+                return response()->file($pathToFile,$headers);
+                // return view('getDocument',compact('pathToFile','fileName'));                
             } else{
                 abort(404);
             }    
