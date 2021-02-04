@@ -103,7 +103,7 @@ class datasheetController extends Controller
         $stations = $this->showdocs()->stations;
         $rooms = $this->showdocs()->rooms;
 
-        return view('updatepdf',compact('docID','docRoom','docName','docStation','docRoom','docUserName','docDateCreate','docDateUpdate','docURL'
+        return view('updatepdf',compact('docID','docRoom','docName','docStation','docStationID','docRoom','docUserName','docDateCreate','docDateUpdate','docURL'
                     ,'docs','stations','rooms'));
     }
 }

@@ -21,7 +21,7 @@ class updateController extends Controller
 
         $document = document::findOrFail($req->id);
         $document->name = $data['updateDocName'];
-        //$document->Station_id = $data['updateStorePlace'];
+        $document->Station_id = $data['updateStorePlace'];
 
         $document->save();
         return redirect(route('updatepdf',$req->id));
