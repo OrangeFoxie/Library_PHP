@@ -71,11 +71,6 @@
                         <select name="updateStorePlace" class="form-control" name="stationName" id="exampleFormControlSelect1">
                             <option value="{{ $docStation }}">{{ $docStation }} &emsp;[{{ $docRoom }}]</option>
                             @foreach($stations as $S1) 
-                                {{-- {{ 
-                                    if($S1 == $docStation){
-                                        '<option class="bg-primary" value="{{ $S1->id }}">{{ $S1->name }} &emsp;[{{ $S1->RoomName }}]</option>'
-                                    }                                
-                                }} --}}
                                 <option value="{{ $S1->id }}">{{ $S1->name }} &emsp;[{{ $S1->RoomName }}]</option>
                             @endforeach
                         </select>      

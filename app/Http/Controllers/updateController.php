@@ -13,16 +13,17 @@ class updateController extends Controller
     //
     public function upDocument(Request $req){
         $this->validate(request(), [
-            'updateDocName' => 'required|min:1|max:120'
+            'updateDocName' => 'required|min:1|max:120',
+            'updateStorePlace' => 'required'
         ]);
 
         $data = request()->all();
 
         $document = document::findOrFail($req->id);
         $document->name = $data['updateDocName'];
-        $document->Station_id = $data['updateStorePlace'];
+        //$document->Station_id = $data['updateStorePlace'];
 
         $document->save();
-        return redirect('/home');
+        return redirect(route('updatepdf',$req->id));
     }
 }
