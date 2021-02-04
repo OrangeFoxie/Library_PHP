@@ -64,10 +64,10 @@
                     @csrf
                     <div class="mb-3">
                       <label for="docName" class="form-label">Tên tài liệu</label>
-                      <input type="text" class="form-control" id="docName" aria-describedby="docName" placeholder="{{ $docName }}" value="{{ $docName }}">
+                      <input name="updateDocName" type="text" class="form-control" id="docName" aria-describedby="docName" placeholder="{{ $docName }}" value="{{ $docName }}">
                     </div>
                     <div class="mb-3">
-                        <label for="docStation" class="form-label">Khu vực lưu trữ</label>
+                        <label name="updateStorePlace" for="docStation" class="form-label">Khu vực lưu trữ</label>
                         <select class="form-control" name="stationName" id="exampleFormControlSelect1">
                             <option value="{{ $docStation }}">{{ $docStation }} &emsp;[{{ $docRoom }}]</option>
                             @foreach($stations as $S1) 

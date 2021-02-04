@@ -12,8 +12,16 @@ class updateController extends Controller
 {
     //
     public function upDocument(Request $req){
+        $this->validate(request(), [
+            'updateDocName' => 'required|min:1|max:120'
+        ]);
+
+        $data = request()->all();
+
         $document = document::findOrFail($req->id);
-        $docName = $document->name;
-        echo $docName;
+        $document->name = $data['updateDocName'];
+
+        $document->save();
+        return redirect('/home');
     }
 }
