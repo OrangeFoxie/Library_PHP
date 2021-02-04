@@ -59,17 +59,18 @@
           </h2>
           <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
             <div class="accordion-body">
-                <form action="upDocs" method="POST">
+                <form action="{{ route('upDocs',$docID) }}" method="POST"> 
+                    {{-- @method('PATCH') --}}
                     @csrf
                     <div class="mb-3">
                       <label for="docName" class="form-label">Tên tài liệu</label>
-                      <input type="text" class="form-control" id="docName" aria-describedby="docName" placeholder="{{ $docName }}">
+                      <input type="text" class="form-control" id="docName" aria-describedby="docName" placeholder="{{ $docName }}" value="{{ $docName }}">
                     </div>
                     <div class="mb-3">
                         <label for="docStation" class="form-label">Khu vực lưu trữ</label>
                         <select class="form-control" name="stationName" id="exampleFormControlSelect1">
                             <option value="{{ $docStation }}">{{ $docStation }} &emsp;[{{ $docRoom }}]</option>
-                            @foreach($stations as $S1   ) 
+                            @foreach($stations as $S1) 
                                 <option value="{{ $S1->id }}">{{ $S1->name }} &emsp;[{{ $S1->RoomName }}]</option>
                             @endforeach
                         </select>      

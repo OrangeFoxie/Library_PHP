@@ -29,7 +29,6 @@ Route::get('/logout', $controllerLink.'\Auth\LoginController@logout');  //log ou
 Route::post('/subDocs', $controllerLink.'\insertController@storeDocument');  //Input new Docs
 Route::post('/subStas', $controllerLink.'\insertController@storeStation');  //Input new Station
 Route::post('/subRooms', $controllerLink.'\insertController@storeRoom');  //Input new Station
-Route::post('updatepdf/upDocs', $controllerLink.'\updateController@upDocument');   //update documents
     
 Route::get('pdf1/{id}',[         // open pdf file in new tab::Not using this
     'as'=>'showpdf1',
@@ -39,5 +38,7 @@ Route::get('pdf1/{id}',[         // open pdf file in new tab::Not using this
 // open pdf file in new tab::Uing this
 Route::get('pdf/{id}', $controllerLink.'\datasheetController@getDocument')->name('showpdf')->middleware('auth'); 
 
-// Update info of pdf file
+// See info of pdf file
 Route::get('updatepdf/{id}', $controllerLink.'\datasheetController@updatePDF')->name('updatepdf')->middleware('auth'); 
+// update pdf documents
+Route::post('updatepdf/{id}/upDocs', $controllerLink.'\updateController@upDocument')->name('upDocs');   //updateController

@@ -79,7 +79,8 @@ class datasheetController extends Controller
     }
 
     public function updatePDF(Request $req){
-        $document = document::findOrFail($req->id);     
+        $document = document::findOrFail($req->id);
+        $docID = $document->id;     
         $docName = $document->name;
         $docStationID = $document->Station_id;
         $docUserID = $document->users_id;
@@ -101,7 +102,8 @@ class datasheetController extends Controller
         $docs = $this->showdocs()->docs;
         $stations = $this->showdocs()->stations;
         $rooms = $this->showdocs()->rooms;
-        return view('updatepdf',compact('docName','docStation','docRoom','docUserName','docDateCreate','docDateUpdate','docURL'
+
+        return view('updatepdf',compact('docID','docName','docStation','docRoom','docUserName','docDateCreate','docDateUpdate','docURL'
                     ,'docs','stations','rooms'));
     }
 }
