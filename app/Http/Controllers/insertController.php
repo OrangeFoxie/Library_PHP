@@ -42,24 +42,40 @@ class insertController extends Controller
     public function storeDocument(Request $request)
     {
         $this->validate($request, [
-            'customFile' => 'required|mimes:pdf|max:2048'
+            'customFile' => 'nullable|mimes:pdf|max:2048'
         ]);
 
         //
         $docs = new document;
-        $nameDoc = $request->get('nameDoc'); 
-            if($nameDoc == null){
+
+            if($request->file('customFile')){
+                $nameDoc = $request->get('nameDoc'); 
+                if($nameDoc == null){
+                    return back();
+                }else{
+                    $docs->name = $nameDoc;
+                }
+                $docs->Station_id = $request->get('stationName'); 
+                $docs->users_id = Auth::user()->id; 
+                $fileName = $request->file('customFile')->getClientOriginalName();
+                $docs->path = $request->file('customFile')->store('Docs','public');
+        
+                $docs->save();
                 return back();
             }else{
-                $docs->name = $nameDoc;
+                $nameDoc = $request->get('nameDoc'); 
+                if($nameDoc == null){
+                    return back();
+                }else{
+                    $docs->name = $nameDoc;
+                }
+                $docs->Station_id = $request->get('stationName'); 
+                $docs->users_id = Auth::user()->id; 
+        
+                $docs->save();
+                return back();
             }
-        $docs->Station_id = $request->get('stationName'); 
-        $docs->users_id = Auth::user()->id; 
-        $fileName = $request->file('customFile')->getClientOriginalName();
-        $docs->path = $request->file('customFile')->store('Docs','public');
 
-        $docs->save();
-        return back();
     }
 
     public function storeStation(Request $request)
