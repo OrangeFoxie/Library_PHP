@@ -36,9 +36,9 @@ Route::get('pdf1/{id}',[         // open pdf file in new tab::Not using this
 ])->middleware('auth');
 
 // open pdf file in new tab::Uing this
-Route::get('pdf/{id}', $controllerLink.'\datasheetController@getDocument')->name('showpdf')->middleware('auth'); 
+Route::get('/pdf/{id}', $controllerLink.'\datasheetController@getDocument')->name('showpdf')->middleware('auth'); 
 
 // See info of pdf file
-Route::get('updatepdf/{id}', $controllerLink.'\datasheetController@updatePDF')->name('updatepdf')->middleware('auth'); 
+Route::get('/updatepdf/{id}', $controllerLink.'\datasheetController@updatePDF')->name('updatepdf')->middleware('auth'); 
 // update pdf documents
-Route::post('updatepdf/{id}/upDocs', $controllerLink.'\updateController@upDocument')->name('upDocs');   //updateController
+Route::post('/updatepdf/{id}/upDocs', $controllerLink.'\updateController@upDocument')->name('upDocs');   //updateController

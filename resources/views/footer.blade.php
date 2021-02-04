@@ -44,8 +44,8 @@
                                 </select>      
                             <small id="emailHelp" class="form-text text-muted">Kệ lưu trữ sẽ nằm trong phòng lưu trữ đã được định trước</small>              
                         </div>                  
-                        <div>
-                          <input type="file" name="customFile" class="custom-file-input" id="customFile" accept="application/pdf">
+                        <div class="form-group">
+                          <input type="file" name="customFile" class="file-input" id="customFile" accept="application/pdf">
                         </div>
 
                         <button type="submit" class="btn btn-primary mt-2">Lưu lại</button>

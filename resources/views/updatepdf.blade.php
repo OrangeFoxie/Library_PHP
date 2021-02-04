@@ -59,27 +59,27 @@
           </h2>
           <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
             <div class="accordion-body">
-                <form action="{{ route('upDocs',$docID) }}" method="POST"> 
+                <form action="{{ route('upDocs',$docID) }}" method="POST" enctype="multipart/form-data"> 
                     {{-- @method('PATCH') --}}
                     @csrf
-                    <div class="mb-3">
+                    <div class="mb-3 form-group">
                       <label for="docName" class="form-label">Tên tài liệu</label>
                       <input name="updateDocName" type="text" class="form-control" id="docName" aria-describedby="docName" placeholder="{{ $docName }}" value="{{ $docName }}">
                     </div>
-                    <div class="mb-3">
+                    <div class="mb-3 form-group">
                         <label for="docStation" class="form-label">Khu vực lưu trữ</label>
-                        <select name="updateStorePlace" class="form-control" name="stationName" id="exampleFormControlSelect1">
+                        <select name="updateStorePlace" class="form-control" id="exampleFormControlSelect1">
                             <option value="{{ $docStationID }}">{{ $docStation }} &emsp;[{{ $docRoom }}]</option>
                             @foreach($stations as $S1) 
                                 <option value="{{ $S1->id }}">{{ $S1->name }} &emsp;[{{ $S1->RoomName }}]</option>
                             @endforeach
                         </select>      
                     </div>
-                    <div>
-                        <input type="file" name="customFile" class="custom-file-input my-2" id="customFile" accept="application/pdf">
+                    <div class="mb-3 form-group">
+                        <input name="updateFile" type="file" class="file-input" id="updateFile" accept="application/pdf">
                     </div>
 
-                    <button type="submit" class="btn btn-primary mt-2">Cập nhật</button>
+                    <button type="submit" class="btn btn-primary" value="submit">Cập nhật</button>
                   </form>   
             </div>
           </div>
