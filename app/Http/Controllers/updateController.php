@@ -13,18 +13,25 @@ class updateController extends Controller
         $this->validate(request(), [
             'updateDocName' => 'required|min:1|max:120',
             'updateStorePlace' => 'required',
-            'updateFile' => 'mimes:pdf|max:2048',
+            'updateFile' => 'mimes:pdf|nullable|max:2048',
         ]);
 
         $data = request()->all();
 
         $document = document::findOrFail($req->id);
-        $document->name = $data['updateDocName'];
-        $document->Station_id = $data['updateStorePlace'];
-
-        $document->path = $req->file('updateFile')->store('Docs','public');
-
-        $document->save();
-        return redirect(route('updatepdf',$req->id));
+        if($req->file('updateFile')){
+            $document->name = $data['updateDocName'];
+            $document->Station_id = $data['updateStorePlace'];    
+            $document->path = $req->file('updateFile')->store('Docs','public');
+            $document->save();
+            return redirect(route('updatepdf',$req->id));
+    
+        }else{
+            $document->name = $data['updateDocName'];
+            $document->Station_id = $data['updateStorePlace']; 
+            $document->save();
+            return redirect(route('updatepdf',$req->id));
+      
+        }
     }
 }
