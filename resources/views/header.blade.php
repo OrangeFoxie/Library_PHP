@@ -20,7 +20,7 @@
                     {{-- button dropDown --}}
                     <div class="dropdown">
                       <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        {{ Auth::user()->username }}
+                        {{ Auth::user()->name }}
                       </button>
                       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                         <a class="dropdown-item" href="#">Thông tin cá nhân</a>
