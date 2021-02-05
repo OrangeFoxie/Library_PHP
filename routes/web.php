@@ -41,4 +41,4 @@ Route::get('/pdf/{id}', $controllerLink.'\datasheetController@getDocument')->nam
 // See info of pdf file
 Route::get('/updatepdf/{id}', $controllerLink.'\datasheetController@updatePDF')->name('updatepdf')->middleware('auth'); 
 // update pdf documents
-Route::post('/updatepdf/{id}/upDocs', $controllerLink.'\updateController@upDocument')->name('upDocs');   //updateController
+Route::post('/updatepdf/{id}/upDocs', $controllerLink.'\updateController@upDocument')->name('upDocs')->middleware('auth');    //updateController
