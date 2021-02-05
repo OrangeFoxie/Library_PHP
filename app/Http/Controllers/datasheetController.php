@@ -88,10 +88,10 @@ class datasheetController extends Controller
         $docDateUpdate = $document->updated_at;
 
         $station = station::where('stations.id','=',$docStationID)->first();
-        $docStationID = $station->Room_id;
+        $docStationId = $station->Room_id;
         $docStation = $station->name;
 
-        $room = room::where('rooms.id','=',$docStationID)->first();
+        $room = room::where('rooms.id','=',$docStationId)->first();
         $docRoom = $room->name;
 
         $user = User::where('users.id','=',$docUserID)->first();
@@ -103,7 +103,7 @@ class datasheetController extends Controller
         $stations = $this->showdocs()->stations;
         $rooms = $this->showdocs()->rooms;
 
-        return view('updatepdf',compact('docID','docRoom','docName','docStation','docStationID','docRoom','docUserName','docDateCreate','docDateUpdate','docURL'
+        return view('updatepdf',compact('docID','docRoom','docName','docStation','docStationID','docStationId','docRoom','docUserName','docDateCreate','docDateUpdate','docURL'
                     ,'docs','stations','rooms'));
     }
 }
