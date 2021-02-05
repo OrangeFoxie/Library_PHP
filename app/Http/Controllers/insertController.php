@@ -42,7 +42,7 @@ class insertController extends Controller
     public function storeDocument(Request $request)
     {
         $this->validate($request, [
-            'customFile' => 'nullable|mimes:pdf|max:2048'
+            'customFile' => 'nullable|mimes:pdf|max:5000'
         ]);
 
         //

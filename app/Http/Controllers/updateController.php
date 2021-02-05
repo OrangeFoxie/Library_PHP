@@ -13,7 +13,7 @@ class updateController extends Controller
         $this->validate(request(), [
             'updateDocName' => 'required|min:1|max:120',
             'updateStorePlace' => 'required',
-            'updateFile' => 'mimes:pdf|nullable|max:2048',
+            'updateFile' => 'mimes:pdf|nullable|max:5000',
         ]);
 
         $document = document::findOrFail($req->id);
