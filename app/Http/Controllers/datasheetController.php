@@ -95,7 +95,7 @@ class datasheetController extends Controller
         $docRoom = $room->name;
 
         $user = User::where('users.id','=',$docUserID)->first();
-        $docUserName = $user->username;
+        $docUserName = $user->name;
 
         $docURL = $req->id;
 
