@@ -69,7 +69,7 @@
                     <div class="mb-3 form-group">
                         <label for="docStation" class="form-label">Khu vực lưu trữ</label>
                         <select name="updateStorePlace" class="form-control" id="exampleFormControlSelect1">
-                            <option value="{{ $docStationID }}">{{ $docStation }} &emsp;[{{ $docRoom }}]</option>
+                            <option value="{{ $docStationID }}" class="bg-secondary">{{ $docStation }} &emsp;[{{ $docRoom }}]</option>
                             @foreach($stations as $S1) 
                                 <option value="{{ $S1->id }}">{{ $S1->name }} &emsp;[{{ $S1->RoomName }}]</option>
                             @endforeach
