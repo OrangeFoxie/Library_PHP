@@ -45,7 +45,8 @@
                             <th scope="col" id="he">Tài liệu</th>
                             <th scope="col" id="he">Kệ sách</th>
                             <th scope="col" id="he">Phòng ban</th>
-                            <th scope="col" id="he">Người thêm</th>
+                            <th scope="col" id="he">Ngày tạo</th>
+                            <th scope="col" id="he">Ngày cập nhật</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -55,9 +56,10 @@
                                 <a href="{{ route('updatepdf', $document->docID) }}" target="_blank" class="text-dark" style="text-decoration:none;">{{ $document->docID }}</a>
                             </th>
                             <td><a href="{{ route('showpdf', $document->docID) }}" target="_blank" class="text-dark" style="text-decoration:none;">{{ $document->docName}}</a></td>    
-                            <td>{{ $document->docID}}</td>   
-                            <td>{{ $document->docName}}</td> 
-                            <td>{{ $document->urid}}</td> 
+                            <td>{{ $document->stationName }}</td>   
+                            <td>{{ $document->roomName }}</td> 
+                            <td>{{ $document->docNew }}</td> 
+                            <td>{{ $document->docUpdate }}</td> 
                         </tr>    
                     @endforeach                    
                 </tbody>
