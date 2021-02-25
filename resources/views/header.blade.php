@@ -23,7 +23,7 @@
                         {{ Auth::user()->name }}
                       </button>
                       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="#">Thông tin cá nhân</a>
+                        <a class="dropdown-item" href="{{ route('userInfo',Auth::user()->id) }}">Thông tin cá nhân</a>
                         <a class="dropdown-item text-danger" href="{{ url('/logout') }}">Đăng xuất</a>
                       </div>
                     </div>
