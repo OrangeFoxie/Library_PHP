@@ -38,7 +38,31 @@
           </h2>
           <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
             <div class="accordion-body">
-              <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col" id="he">ID</th>
+                            <th scope="col" id="he">Tài liệu</th>
+                            <th scope="col" id="he">Kệ sách</th>
+                            <th scope="col" id="he">Phòng ban</th>
+                            <th scope="col" id="he">Người thêm</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($docs as $document)
+                        <tr>                
+                            <th scope="row">
+                                <a href="{{ route('updatepdf', $document->docID) }}" target="_blank" class="text-dark" style="text-decoration:none;">{{ $document->docID }}</a>
+                            </th>
+                            <td><a href="{{ route('showpdf', $document->docID) }}" target="_blank" class="text-dark" style="text-decoration:none;">{{ $document->docName}}</a></td>    
+                            <td>{{ $document->docID}}</td>   
+                            <td>{{ $document->docName}}</td> 
+                            <td>{{ $document->urid}}</td> 
+                        </tr>    
+                    @endforeach                    
+                </tbody>
+                  
+                </table>            
             </div>
           </div>
         </div>
