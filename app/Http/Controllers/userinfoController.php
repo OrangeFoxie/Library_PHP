@@ -11,13 +11,6 @@ use App\Models\room;
 
 class userinfoController extends Controller
 {
-    //
-    // static function getUser(Request $request){
-    //     $user = user::findOrFail($request->id);
-        
-    //     $usrName = $user->name;
-    //     return $usrName;
-    // }
     public function showUser(Request $request){
         $user = user::findOrFail($request->id);
         $usrID = $user->id;
@@ -39,11 +32,6 @@ class userinfoController extends Controller
                     'rooms.name as roomName')
         ->orderBy('docID')
         ->get();
-
-        // $doc2 = DB::table('documents')
-        // ->join('rooms','Rooms_id','=','rooms.id')
-        // ->select('*')
-        // ->get();
 
         return(view('userinfo', compact('usrName','logInName','email','dateJoin','dateUpdate','docs')));
     }
