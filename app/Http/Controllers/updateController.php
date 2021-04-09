@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\document;
+use Illuminate\Support\Facades\Storage;
 
 class updateController extends Controller
 {
@@ -25,13 +26,10 @@ class updateController extends Controller
         if($req->file('updateFile')){
             $document->path = $req->file('updateFile')->store('Docs','public');
             $document->save();
-            return redirect(route('updatepdf',$req->id));
-            // dd($document->Station_id,$document->path);
-    
+            return redirect(route('updatepdf',$req->id));    
         }else{
             $document->save();
             return redirect(route('updatepdf',$req->id));
-            // dd($document->Station_id,$document->path);
         }
     }
 }
