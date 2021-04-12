@@ -105,9 +105,6 @@ function formValidate(){
     alert('Mật khẩu quản trị không hợp lệ!'); 
     window.location.reload();
   }
-
-    // else
-    //     // alert('Mật khẩu quản trị hợp lệ!');
 }
 </script>
 @endsection
