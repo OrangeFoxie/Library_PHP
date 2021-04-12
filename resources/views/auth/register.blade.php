@@ -78,7 +78,7 @@
                         <div class="form-group row">
                             <label for="password-admin" class="col-md-4 col-form-label text-md-right">{{ __('Mật khẩu quản trị') }}</label>
                             <div class="col-md-6">
-                                <input id="passwordAdmin" type="password" class="form-control" name="passwordAdmin" required onfocusout="formValidate()">
+                                <input id="passwordAdmin" type="password" class="form-control" name="passwordAdmin" required pattern="^[0-9]{,10}" onfocusout="formValidate()">
                             </div>
                         </div>
 
@@ -96,6 +96,9 @@
     </div>
 </div>
 
-<script src="..\public\js\adminPassword\adminPassword.js"></script>
+    <script>
+        window.pass = '{{ env('APP_CAMEOKEY') }}';
+    </script>
+    <script src="..\public\js\adminPassword\adminPassword.js"></script>
 
 @endsection
