@@ -9,6 +9,7 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use App\Exceptions\Handler;
+use Auth;
 
 class RegisterController extends Controller
 {
@@ -30,7 +31,8 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::MAIN;
+    // protected $redirectTo = RouteServiceProvider::MAIN;
+    protected $redirectTo = '/home';
 
     /**
      * Create a new controller instance.
@@ -55,7 +57,6 @@ class RegisterController extends Controller
             'username' => ['required', 'string', 'max:100'],
             'email' => ['required', 'string', 'email', 'max:55', 'unique:users'],
             'password' => ['required', 'string', 'min:1', 'confirmed'],
-            'password_administrator' => ['required', 'string', 'min:1'],
         ]);
     }
 
@@ -67,17 +68,11 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        $adminPass = $data['password_administrator'];
-        if($adminPass == 2){
-            return User::create([
-                'name' => $data['name'],
-                'username' => $data['username'],
-                'email' => $data['email'],
-                'password' => Hash::make($data['password']),
-            ]);
-        }
-        else{
-            withoutExceptionHandling();
-        }
+        return User::create([
+            'name' => $data['name'],
+            'username' => $data['username'],
+            'email' => $data['email'],
+            'password' => Hash::make($data['password']),
+        ]);
     }
 }

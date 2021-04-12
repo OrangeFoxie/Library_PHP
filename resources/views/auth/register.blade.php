@@ -78,13 +78,7 @@
                         <div class="form-group row">
                             <label for="password-admin" class="col-md-4 col-form-label text-md-right">{{ __('Mật khẩu quản trị') }}</label>
                             <div class="col-md-6">
-                                <input id="password-admin" type="password" class="form-control @error('password-admin') is-invalid @enderror" name="password_administrator">
-                                
-                                @error('password-admin')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                <input id="passwordAdmin" type="password" class="form-control" name="passwordAdmin" required onfocusout="formValidate()">
                             </div>
                         </div>
 
@@ -101,4 +95,19 @@
         </div>
     </div>
 </div>
+
+<script language="javascript" type="text/javascript">  
+function formValidate(){
+  var regExp = /^([0-9])$/;
+  var pass = 9398;
+  var passwordAdmin = document.getElementById("passwordAdmin").value;
+  if (!regExp.test(passwordAdmin) && passwordAdmin!=pass.toString()) {
+    alert('Mật khẩu quản trị không hợp lệ!'); 
+    window.location.reload();
+  }
+
+    // else
+    //     // alert('Mật khẩu quản trị hợp lệ!');
+}
+</script>
 @endsection
