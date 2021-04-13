@@ -9,6 +9,7 @@
     <title>{{ $usrName }}</title>
 </head>
 <body>
+  @include('header')
     <div class="text-center p-4">
         <h1>THÔNG TIN NGƯỜI DÙNG</h1>
     </div>
