@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vị trí tài liệu</title>
     <link rel="stylesheet" href="css/datasheetCSS.css">
+
+    <link rel="shortcut icon" type="image/x-icon" href="{{ URL::asset('./favicon/booksell.ico') }}" />
+
 </head>
 <body>
 
